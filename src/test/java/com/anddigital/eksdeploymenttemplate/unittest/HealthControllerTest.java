@@ -1,4 +1,4 @@
-package com.anddigital.eksdeploymenttemplate;
+package com.anddigital.eksdeploymenttemplate.unittest;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class HelloControllerTest {
+public class HealthControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -24,6 +24,6 @@ public class HelloControllerTest {
     public void getHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello world")));
+                .andExpect(content().string(equalTo("Healthy")));
     }
 }
